@@ -1,0 +1,14 @@
+﻿<Window x:Class="WpfClickOnce.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel>
+            <TextBlock FontSize="30">초간단 이미지 보기</TextBlock>
+            <Slider x:Name="sli" Minimum="100" Maximum="500"></Slider>
+            <Image Source="img.jpg" 
+                   Width="{Binding ElementName=sli, Path=Value}" 
+                   Height="{Binding ElementName=sli, Path=Value}" />
+        </StackPanel>
+    </Grid>
+</Window>

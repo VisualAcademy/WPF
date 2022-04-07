@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Members>
+	<Member>
+		<IsActive>true</IsActive>
+		<GroupColor>#FFCC3333</GroupColor>
+		<Name>RedPlus</Name>
+	</Member>
+	<Member>
+		<IsActive>false</IsActive>
+		<GroupColor>#FFA4AB28</GroupColor>
+		<Name>WhitePlus</Name>
+	</Member>
+	<Member>
+		<IsActive>true</IsActive>
+		<GroupColor>#FFA6D877</GroupColor>
+		<Name>VisualAcademy</Name>
+	</Member>
+	<Member>
+		<IsActive>true</IsActive>
+		<GroupColor>#FF138C48</GroupColor>
+		<Name>DevLec</Name>
+	</Member>
+	<Member>
+		<IsActive>false</IsActive>
+		<GroupColor>#FF5FADB9</GroupColor>
+		<Name>DotNetKorea</Name>
+	</Member>
+	<Member>
+		<IsActive>true</IsActive>
+		<GroupColor>#FF3B1076</GroupColor>
+		<Name>DotNetNote</Name>
+	</Member>
+</Members>

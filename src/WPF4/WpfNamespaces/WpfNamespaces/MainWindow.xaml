@@ -1,0 +1,21 @@
+﻿<Window x:Class="WpfNamespaces.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+
+        xmlns:local="clr-namespace:WpfNamespaces"
+        xmlns:util="clr-namespace:WpfNamespaces.Util;assembly=WpfNamespaces.Util"
+        
+        Title="MainWindow" Height="350" Width="525">
+
+    <Window.Resources>
+        <local:TimeConverter x:Key="tConverter"></local:TimeConverter>
+        <util:TimeConverter x:Key="tConverter2"></util:TimeConverter>
+    </Window.Resources>
+    
+    <Grid>
+        <StackPanel>
+            <TextBlock x:Name="lblTime" Text="{Binding Converter={StaticResource tConverter2}}"></TextBlock>
+            <Button x:Name="btnClick" Content="현재시간" Click="btnClick_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

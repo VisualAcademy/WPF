@@ -1,0 +1,67 @@
+﻿<Window x:Class="WpfAddressBook.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        MinHeight="200" MinWidth="200"
+        Title="MainWindow" Height="480" Width="640">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>    
+        <!--[1] 메뉴-->
+        <Menu Grid.Row="0">
+            <MenuItem Header="파일(_F)" x:Name="mnuFile">
+                <Separator />
+                <MenuItem Name="miExit" Header="끝내기(_X)" InputGestureText="Ctrl+X"></MenuItem>    
+            </MenuItem>
+            <MenuItem Header="도구(_T)" x:Name="mnuTool">
+                <MenuItem Header="백업" x:Name="miBackup"></MenuItem>
+            </MenuItem>
+            <MenuItem Header="도움말(_H)">
+                <MenuItem Header="주소록 정보" Name="miAbout"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <!--[2] 도구모음-->
+        <ToolBarTray Grid.Row="1">
+            <ToolBar>
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="btnClose" Content="끝내기" />
+                </StackPanel>
+            </ToolBar>
+        </ToolBarTray>
+        <!--[3] 주소록-->
+        <Label Content="번호 : " Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="62,21,0,0" Name="lblNum" VerticalAlignment="Top" Width="120" />
+        <Label Content="이름 : " Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="62,55,0,0" Name="lblName" VerticalAlignment="Top" Width="120" />
+        <Label Content="휴대폰 : " Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="62,89,0,0" Name="lblMobile" VerticalAlignment="Top" Width="120" />
+        <Label Content="이메일 : " Grid.Row="2" Height="28" HorizontalAlignment="Left" Margin="62,123,0,0" Name="lblEmail" VerticalAlignment="Top" Width="120" />
+        <TextBox Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="188,26,0,0" Name="txtNum" VerticalAlignment="Top" Width="198" IsReadOnly="True" />
+        <TextBox Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="188,60,0,0" Name="txtName" VerticalAlignment="Top" Width="198" />
+        <TextBox Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="188,94,0,0" Name="txtMobile" VerticalAlignment="Top" Width="198" />
+        <TextBox Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="188,128,0,0" Name="txtEmail" VerticalAlignment="Top" Width="198" />
+        <Button Content="입력" Grid.Row="2" Height="23" HorizontalAlignment="Right" Margin="0,25,95,0" Name="btnAdd" VerticalAlignment="Top" Width="75" />
+        <Button Content="저장" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="448,60,0,0" Name="btnSave" VerticalAlignment="Top" Width="75" />
+        <Button Content="수정" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="448,94,0,0" Name="btnModify" VerticalAlignment="Top" Width="75" />
+        <Button Content="삭제" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="448,128,0,0" Name="btnDelete" VerticalAlignment="Top" Width="75" />
+        <Button Content="처음" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="111,167,0,0" Name="btnFirst" VerticalAlignment="Top" Width="75" />
+        <Button Content="이전" Height="23" HorizontalAlignment="Right" Margin="0,167,326,0" Name="btnPrev" VerticalAlignment="Top" Width="75" Grid.Row="2" />
+        <Button Content="다음" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="327,167,0,0" Name="btnNext" VerticalAlignment="Top" Width="75" />
+        <Button Content="마지막" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="434,167,0,0" Name="btnLast" VerticalAlignment="Top" Width="75" />
+        <DataGrid 
+            AutoGenerateColumns="True" Grid.Row="2" Height="114" HorizontalAlignment="Left" Margin="62,196,0,0" 
+            Name="dgvAddress" VerticalAlignment="Top" Width="461">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="번호" Binding="{Binding Path=Num}"></DataGridTextColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <TextBox Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="67,327,0,0" Name="txtGo" VerticalAlignment="Top" Width="70" />
+        <Button Content="이동" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="154,327,0,0" Name="btnGo" VerticalAlignment="Top" Width="75" />
+        <Button Content="검색" Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="448,327,0,0" Name="btnSearch" VerticalAlignment="Top" Width="75" />
+        <TextBox Grid.Row="2" Height="23" HorizontalAlignment="Left" Margin="291,327,0,0" Name="txtSearch" VerticalAlignment="Top" Width="120" />
+        <!--[4] 상태바-->     
+        <StatusBar Grid.Row="3">
+            <Label Name="sslCount" Content="총 레코드 수 : "></Label>
+        </StatusBar>
+    </Grid>
+</Window>

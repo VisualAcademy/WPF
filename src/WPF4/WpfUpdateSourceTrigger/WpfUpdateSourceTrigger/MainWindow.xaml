@@ -1,0 +1,18 @@
+﻿<Window x:Class="WpfUpdateSourceTrigger.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel>
+            <Calendar x:Name="theCalendar"></Calendar>
+            <TextBox x:Name="txtDate" 
+                     Text="{
+                            Binding ElementName=theCalendar, 
+                            Path=SelectedDate, 
+                            StringFormat=\{0:yyyy-MM-dd\},
+                            UpdateSourceTrigger=PropertyChanged
+                            }"
+                     Width="200"></TextBox>
+        </StackPanel>
+    </Grid>
+</Window>

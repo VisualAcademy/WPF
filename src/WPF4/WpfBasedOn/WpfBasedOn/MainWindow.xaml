@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfBasedOn.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <!-- 기본 스타일 -->
+        <Style x:Key="myButtonStyleBase" TargetType="Button">
+            <Setter Property="Background" Value="LightBlue"></Setter>
+            <Setter Property="Foreground" Value="DarkBlue"></Setter>
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="Width" Value="100"></Setter>
+        </Style>        
+        <!-- 또 다른 스타일 : 기본에서 상속 -->
+        <Style x:Key="myButtonStyle2" TargetType="Button" BasedOn="{StaticResource myButtonStyleBase}">
+            <Setter Property="Foreground" Value="DarkGreen"></Setter>
+        </Style>
+        <Style x:Key="myButtonStyle3" TargetType="Button" BasedOn="{StaticResource myButtonStyleBase}">
+            <Setter Property="Foreground" Value="Red"></Setter>
+            <Setter Property="Margin" Value="10, 5, 10, 5"></Setter>
+        </Style>
+        <Style x:Key="myListBoxItemStyle" TargetType="ListBoxItem">
+            <Setter Property="Foreground" Value="Blue"></Setter>
+        </Style>
+        <Style x:Key="myListBoxItemStyle2" TargetType="ListBoxItem" BasedOn="{StaticResource myListBoxItemStyle}">
+            <Setter Property="Foreground" Value="Red"></Setter>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+        </Grid.ColumnDefinitions>        
+        <ListBox x:Name="lstTest" Width="200" Height="150" VerticalAlignment="Top">
+            <ListBoxItem Content="항목 1" Style="{StaticResource myListBoxItemStyle}"></ListBoxItem>
+            <ListBoxItem Content="항목 2" Style="{StaticResource myListBoxItemStyle2}"></ListBoxItem>
+            <ListBoxItem Content="항목 3" Style="{StaticResource myListBoxItemStyle}"></ListBoxItem>
+            <ListBoxItem Content="항목 4" Style="{StaticResource myListBoxItemStyle2}"></ListBoxItem>
+        </ListBox>        
+        <StackPanel Orientation="Vertical" VerticalAlignment="Top" Grid.Column="1">
+            <Button Content="추가" Style="{StaticResource myButtonStyleBase}"></Button>
+            <Button Content="수정" Style="{StaticResource myButtonStyle2}"></Button>
+            <Button Content="삭제" Style="{StaticResource myButtonStyle3}"></Button>
+        </StackPanel>        
+    </Grid>
+</Window>

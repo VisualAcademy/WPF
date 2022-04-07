@@ -1,0 +1,36 @@
+﻿<Window x:Class="WpfStyle.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <Style x:Key="myButtonStyle" TargetType="Button">
+            <Setter Property="Margin" Value="10"></Setter>
+            <Setter Property="Background">
+                <Setter.Value>
+                    <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                        <GradientStop Color="Red" Offset="0"></GradientStop>
+                        <GradientStop Color="Blue" Offset="1"></GradientStop>
+                    </LinearGradientBrush>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    <StackPanel>        
+        <!-- 해당 컨트롤에 직접 스타일 지정 -->
+        <TextBox x:Name="txtData" Width="150" Height="23">
+            <TextBox.Style>
+                <Style TargetType="TextBox">
+                    <Setter Property="Background" Value="Yellow"></Setter>
+                    <Setter Property="Foreground" Value="Black"></Setter>
+                    <Setter Property="HorizontalAlignment" Value="Center"></Setter>
+                    <Setter Property="BorderBrush" Value="Red"></Setter>                    
+                </Style>
+            </TextBox.Style>
+        </TextBox>
+        <!-- Resources 섹션으로 한번 스타일 지정 후 여러곳에 적용 -->
+        <Button x:Name="btnClick" Width="150" Height="23" Content="버튼1" 
+                Style="{StaticResource myButtonStyle}"></Button>
+        <Button x:Name="btnCancel" Width="150" Height="23" Content="버튼2"
+                Style="{StaticResource myButtonStyle}"></Button>
+    </StackPanel>
+</Window>

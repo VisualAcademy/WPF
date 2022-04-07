@@ -1,0 +1,9 @@
+﻿<Window x:Class="WpfHelloWorld.FrmMain"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="처음으로 작성해 보는 WPF 응용 프로그램" Height="300" Width="300">
+    <Grid>
+        <Button Name="btnOK" Content="클릭하세요!!!" 
+                HorizontalAlignment="Center" VerticalAlignment="Center"></Button>
+    </Grid>
+</Window>

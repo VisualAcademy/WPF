@@ -1,0 +1,14 @@
+﻿<Window x:Class="WpfUserControl.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        xmlns:uc="clr-namespace:WpfUserControl"
+        
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel>
+            <uc:MyPanel Width="300px" Height="200px" TitleText="첫번째 제목" BodyText="첫번째 내용"></uc:MyPanel>
+            <uc:MyPanel Width="300px" Height="200px" TitleText="두번째 제목">두번째 내용</uc:MyPanel>
+        </StackPanel>
+    </Grid>
+</Window>

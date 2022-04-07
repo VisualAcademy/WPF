@@ -1,0 +1,45 @@
+﻿<Window x:Class="WpfMultiDataTrigger.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <!-- XML 데이터 가져오기 -->
+        <XmlDataProvider Source="Members.xml" x:Key="xdpMembers"></XmlDataProvider>
+        <!-- DataTrigger 정의 -->
+        <Style x:Key="myStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="Green"></Setter>
+            <Style.Triggers>
+                <!--[1] 단일 조건 처리 -->
+                <DataTrigger Binding="{Binding XPath=IsActive}" Value="false">
+                    <Setter Property="Foreground" Value="Red"></Setter>
+                    <Setter Property="FontWeight" Value="Bold"></Setter>
+                </DataTrigger>
+                <!--[2] 다중 조건 처리(And) if (IsActive == true && Name == DevLec) -->
+                <MultiDataTrigger>
+                    <MultiDataTrigger.Conditions>
+                        <Condition Binding="{Binding XPath=IsActive}" Value="true"></Condition>
+                        <Condition Binding="{Binding XPath=Name}" Value="DevLec"></Condition>
+                    </MultiDataTrigger.Conditions>                        
+                    <Setter Property="Background" Value="Aqua"></Setter>
+                </MultiDataTrigger>        
+                <!--[3] 특정 속성을 바탕으로 다중 조건 처리 -->
+                <MultiTrigger>
+                    <MultiTrigger.Conditions>
+                        <Condition Property="Foreground" Value="Green"></Condition>
+                        <Condition Property="IsMouseOver" Value="True"></Condition>
+                    </MultiTrigger.Conditions>
+                    <Setter Property="Background" Value="Beige"></Setter>
+                </MultiTrigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <ItemsControl ItemsSource="{Binding Source={StaticResource xdpMembers}, XPath=/Members/Member}">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding XPath=Name}" Style="{StaticResource myStyle}"></TextBlock>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </Grid>
+</Window>

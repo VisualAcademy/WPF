@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfIValueConverter.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        
+        xmlns:local="clr-namespace:WpfIValueConverter"
+        
+        Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <local:PostDateConverter x:Key="pdConverter"></local:PostDateConverter>
+    </Window.Resources>
+    <Grid>
+        <ListBox x:Name="lstMemo">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Title}"></TextBlock>
+                        <TextBlock Text=
+                            "{Binding PostDate, Converter={StaticResource pdConverter}, ConverterParameter='\{0:yyyy년 MM월 dd일\}' }"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>

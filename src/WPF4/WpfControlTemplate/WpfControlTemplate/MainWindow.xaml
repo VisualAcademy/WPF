@@ -1,0 +1,37 @@
+﻿<Window x:Class="WpfControlTemplate.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel>
+            <StackPanel.Resources>
+                <Style x:Key="myButtonStyle" TargetType="Button">
+                    <Setter Property="Padding" Value="5"></Setter>                    
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Grid>
+                                    <Ellipse x:Name="ell" Fill="Blue" Stroke="Red" StrokeThickness="2"></Ellipse>
+                                    <ContentPresenter Content="{TemplateBinding Content}"
+                                                      HorizontalAlignment="Center" VerticalAlignment="Center"
+                                                      ></ContentPresenter>
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="true">
+                                        <Setter Property="Fill" Value="Green" TargetName="ell"></Setter>
+                                    </Trigger>
+                                    <Trigger Property="IsPressed" Value="true">
+                                        <Setter Property="Fill" Value="Red" TargetName="ell"></Setter>
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>                
+            </StackPanel.Resources>
+            <TextBox x:Name="txtTime" Width="150" Height="50"></TextBox>            
+            <Button x:Name="btnNow" Content="현재 시간은?" Style="{StaticResource myButtonStyle}" 
+                    Width="150" Height="50" Click="btnNow_Click"></Button>
+        </StackPanel>
+    </Grid>
+</Window>

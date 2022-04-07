@@ -1,0 +1,13 @@
+﻿<Window x:Class="WpfSoundPlayer.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <StackPanel>
+            <Button x:Name="btnQuestion" Content="시스템 - 물음표" />
+            <Button x:Name="btnExclamation" Content="시스템 - 느낌표" />
+            <Button x:Name="btnAsterisk" Content="시스템 - 별표" />
+            <Button x:Name="btnCustom" Content="사용자 정의 사운드 파일" />
+        </StackPanel>
+    </Grid>
+</Window>

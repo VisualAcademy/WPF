@@ -1,0 +1,23 @@
+﻿<Window x:Class="WpfCommandBinding.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Window.CommandBindings>
+        <CommandBinding Command="Help" CanExecute="CommandBinding_CanExecute" Executed="CommandBinding_Executed"></CommandBinding>
+    </Window.CommandBindings>
+    <Grid>
+        <Menu VerticalAlignment="Top">
+            <MenuItem Header="복사" Command="Copy"></MenuItem>
+            <MenuItem Header="붙여넣기" Command="Paste"></MenuItem>
+            <MenuItem Header="잘라내기" Command="Cut"></MenuItem>
+            <MenuItem Header="도움말" Command="Help"></MenuItem>
+        </Menu>
+        <StackPanel Margin="30">
+            <TextBox x:Name="txtInput" Width="200px" Height="50px"></TextBox>
+            <Button x:Name="btnCut" Content="잘라내기" 
+                    Command="Cut" CommandTarget="{Binding ElementName=txtInput}"></Button>
+            <Button x:Name="btnPaste" Content="붙여넣기" 
+                    Command="Paste" CommandTarget="{Binding ElementName=txtInput}"></Button>
+        </StackPanel>        
+    </Grid>
+</Window>
